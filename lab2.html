@@ -79,58 +79,87 @@
 
 	</nav>
 
-	<!-- Main container -->
-	<section id="main-page">
-		<div class="container">
 
+	<section id="projekt3">
+		<div class="container">
 			<div class="jumbotron">
-				<h1>Programowanie w JAVASCRIPT</h1>
-				<div class="row">
-					<div class="col-md-2" align="left">
-						<p>nazwisko: Ścisłowski</p>
-					</div>
-					<div class="col-md-4">
-						<p id="nazwisko"></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2" align="left">
-						<p>imię: Marcin</p>
-					</div>
-					<div class="col-md-4">
-						<p id="imie"></p>
+				<h1>Projekt 2</h1>
+				
+				<p>Miejsce na projekt laboratoryjny</p>
+			
+				<div class="quizsection">
+					<div id="questions">
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-2" align="left">
-						<p>grupa: III SN</p>
-					</div>
-					<div class="col-md-4">
-						<p id="grupa"></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2" align="left">
-						<p>email: 19114@student.pwsz.elblag.pl</p>
-					</div>
-					<div class="col-md-4">
-						<p id="email"></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2" align="left">
-						<p>nr indeksu: 19114</p>
-					</div>
-					<div class="col-md-4">
-						<p id="nr"></p>
-					</div>
-				</div>
+				<p id="odp"></p>
+				
+				<script>
+					let allQuestions = [{
+						question: "Ile jest 2+2?",
+						choices: ["2", "4", "6"],
+						correctAnswer: 1
+					  },
+					  {
+					  	question: "Czym jest Cascading Style Sheet?",
+						choices: ["język służący do opisu formy prezentacji (wyświetlania) stron WWW.", "Obiektowy język oprogramowania", "Skryptowy język programowania", "Dział informatyki", "Nowoczesny komputer"],
+						correctAnswer: 0
+					  },
+					  {
+						question: "Kto jest prezydentem Polski?",
+						choices: ["Bronisław Komorowski", "Andrzej Duda", "Jacek Wiśniewski"],
+						correctAnswer: 1
+					  },
+					  
+					  {
+						question: "Co to jest JavaScript?",
+						choices: ["System zarządzania treścią", "Obiektowy język oprogramowania", "Skryptowy język programowania"],
+						correctAnswer: 2
+					  },
+					  
+					  
+					];
+
+					
+					let i;
+					let j;
+					let k;
+					for(i=0; i<allQuestions.length; i++){
+						document.getElementById("questions").innerHTML +='<div class="p" style="background-color: lightgrey"><form id="question"><b>Pytanie nr '+(i+1)+': </b><br>'+ allQuestions[i].question;
+						for(j=0; j<allQuestions[i].choices.length; j++){
+							document.forms[i].innerHTML += '</div><i><div class="answer"><input name="q1" value="'+ allQuestions[i].choices[j] +'" id="value4" type="radio" />' + allQuestions[i].choices[j] + '</i><br/>';
+						 }
+					 document.getElementById("questions").innerHTML +='</form><br/><br/>';
+					}
+					
+					document.getElementById("questions").innerHTML += '<button onclick="solveQuiz()">Rozwiąż QUIZ</button>';
+					
+				
+
+					function solveQuiz(){
+					  let x;
+					  let i = 0;
+					  let correct = 0; 
+					  for(i = 0; i < document.forms.length;i++) { 
+						x = document.forms[i]; 
+						for(j = 0; j<x.length; j++){
+						  if(x[j].checked) { 
+							correctAnswer = allQuestions[i].correctAnswer;
+							if(x[j].value == allQuestions[i].choices[correctAnswer]){
+							  correct += 1;
+							}
+						  }
+					   }
+					 }
+					 document.getElementById("odp").innerHTML = 'Poprawne odpowiedzi: '+ correct;
+					} 
+
+				</script>
+				
+		
 
 			</div>
-
 		</div>
 	</section>
-
 
 
 
@@ -267,6 +296,14 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
 	<script src="js/forms.js"></script>
+
+
+<script>
+	document.getElementById('1').innerHTML = document.getElementsByClassName('container').length;
+	document.getElementById('2').innerHTML = document.getElementsByClassName('jumbotron').length;
+	document.getElementById('3').innerHTML = document.getElementsByClassName('btn').length;
+	document.getElementById('4').innerHTML =  document.forms.length;
+</script>
 
 
 
