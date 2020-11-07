@@ -79,58 +79,17 @@
 
 	</nav>
 
-	<!-- Main container -->
-	<section id="main-page">
-		<div class="container">
 
+	<section id="projekt3">
+		<div class="container">
 			<div class="jumbotron">
-				<h1>Programowanie w JAVASCRIPT</h1>
-				<div class="row">
-					<div class="col-md-2" align="left">
-						<p>nazwisko: Ścisłowski</p>
-					</div>
-					<div class="col-md-4">
-						<p id="nazwisko"></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2" align="left">
-						<p>imię: Marcin</p>
-					</div>
-					<div class="col-md-4">
-						<p id="imie"></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2" align="left">
-						<p>grupa: III SN</p>
-					</div>
-					<div class="col-md-4">
-						<p id="grupa"></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2" align="left">
-						<p>email: 19114@student.pwsz.elblag.pl</p>
-					</div>
-					<div class="col-md-4">
-						<p id="email"></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2" align="left">
-						<p>nr indeksu: 19114</p>
-					</div>
-					<div class="col-md-4">
-						<p id="nr"></p>
-					</div>
-				</div>
+				<h1>Projekt 1</h1>
+
+				<p>Miejsce na projekt laboratoryjny</p>
 
 			</div>
-
 		</div>
 	</section>
-
 
 
 
@@ -267,6 +226,14 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
 	<script src="js/forms.js"></script>
+
+
+<script>
+	document.getElementById('1').innerHTML = document.getElementsByClassName('container').length;
+	document.getElementById('2').innerHTML = document.getElementsByClassName('jumbotron').length;
+	document.getElementById('3').innerHTML = document.getElementsByClassName('btn').length;
+	document.getElementById('4').innerHTML =  document.forms.length;
+</script>
 
 
 
