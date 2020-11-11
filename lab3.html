@@ -48,7 +48,7 @@
 
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#main-page"
+					<li class="active"><a href="index.html"
 						class="btn btn-primary" title="Strona główna"> <span
 							class="glyphicon glyphicon-home"></span>
 					</a></li>
@@ -86,6 +86,45 @@
 				<h1>Projekt 3</h1>
 
 				<p>Miejsce na projekt laboratoryjny</p>
+
+				<script>
+				let score = 0; 
+				let q = 0; 
+
+				let questions = [
+					["Pytanie 1 test?", "odpowiedź"], 
+					["Pytanie 2 test?", "odpowiedź"]
+				]
+
+				function testQuestion(question) { 
+					if (answer == question[1]) 
+					{ 
+					score++; 
+					} 
+				}
+				</script>
+
+
+				<p id="pytanie"></p>
+				<button>Następne pytanie</button>
+
+
+
+				<script>
+				document.write(questions[0][0]);
+				document.getElementById("pytanie").innerHTML = "test";
+				</script>
+
+
+
+
+
+				<script> 
+				let message = 'Liczba punktów: ' + score; message += ' z ' + questions.length; message += '.'; 
+				document.write('<p>' + message + '</p>'); 
+				</script>
+
+
 
 			</div>
 		</div>
@@ -228,16 +267,8 @@
 	<script src="js/forms.js"></script>
 
 
-<script>
-	document.getElementById('1').innerHTML = document.getElementsByClassName('container').length;
-	document.getElementById('2').innerHTML = document.getElementsByClassName('jumbotron').length;
-	document.getElementById('3').innerHTML = document.getElementsByClassName('btn').length;
-	document.getElementById('4').innerHTML =  document.forms.length;
-</script>
-
 
 
 
 </body>
-
 </html>
