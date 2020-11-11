@@ -87,41 +87,90 @@
 
 				<p>Miejsce na projekt laboratoryjny</p>
 
+				
+				Pytanie: <p id="pytanie"></p>
+				
+				<form>
+
+				<input type="radio" name="odp" value="1">
+				<label for="1" id="1"></label><br>
+				<input type="radio" name="odp" value="2" id="red">
+				<label for="2" id="2"></label><br>
+				<input type="radio" name="odp" value="3">
+				<label for="3" id="3"></label><br>
+				<input type="radio" name="odp" value="4">
+				<label for="4" id="4"></label><br>
+
+				</form>
+				
+
+			
+
 				<script>
 				let score = 0; 
 				let q = 0; 
 
 				let questions = [
-					["Pytanie 1 test?", "odpowiedź"], 
-					["Pytanie 2 test?", "odpowiedź"]
+					["Ile wynosi długość południka?", "15 000 km", "18 000 km", "25 000 km", "20 000 km"], 
+					["Które ze współrzędnych dotyczą Warszawy?", "52 stopni N 21 stopni E", "50 stopni N 10 stopni W", "30 stopni S 16 stopni W", "47 stopni S 22 stopni E"],
+					["Który południk stanowi granicę zmiany daty?", "270 stopni", "360 stopni", "90 stopni", "180 stopni"], 
+					["Kąt dwuścienny pomiędzy półpłaszczyzną południka 0 stopni, a dowolną półpł‚aszczyzną dowolnego południka nazywamy", "długością geograficzną", "szerokością geograficzną", "przekształceniem azymutalnym", "odwzorowaniem azymutalnym"], 
+					["Południk czasu środkowo - europejskiego przebiega w przybliżeniu po linii:", "Odry", "Renu", "Bugu", "Wisły"], 
+					["Kąt dwuścienny pomiędzy płaszczyzną równika, a promieniem ziemi przechodzącym przez określony punkt na powierzchni Ziemi nazywamy", "długością geograficzną", "odzworowaniem azymutalnym", "szerokością geograficzną", "przekształceniem azymutalnym"], 
+					["Ile wyróżniamy stref czasowych na Ziemi?", "16", "20", "24", "12"], 
+					["W jakim okresie wprowadzono kalendarz gregoriański?", "w końcu XVI wieku", "w końcu XIV wieku", "w końcu XV wieku", "w końcu XIII wieku"], 
+					["Linie biegnące od od bieguna do bieguna nazywamy:", "równikiem", "południkami", "krzywymi geograficznymi", "zwrotnikami"],
+					[""]
 				]
 
-				function testQuestion(question) { 
-					if (answer == question[1]) 
-					{ 
-					score++; 
-					} 
+				
+				let i = 0;
+				Nastepne_pytanie();
+
+				function Nastepne_pytanie() {
+				document.getElementById("pytanie").innerHTML = questions[i][0];
+				document.getElementById("1").innerHTML = questions[i][1];
+				document.getElementById("2").innerHTML = questions[i][2];
+				document.getElementById("3").innerHTML = questions[i][3];
+				document.getElementById("4").innerHTML = questions[i][4];
+			
+
+					
+
+				let odpowiedzi = [4,1,4,1,1,3,3,1,2];
+				let elements = document.getElementsByName("odp");
+				for(j = 0; j < elements.length; j++){
+  				 if(elements[j].checked){
+      			  	if(elements[j].value == odpowiedzi[i-1]){
+							score++;
+							licz_punkty();
+						}
+ 				  }
 				}
+
+				i++;
+
+				if(i==10){
+					alert("Test zakończony, wynik to: " +score);
+					javascript:location.reload()
+
+				}
+
+ 				}	
+
 				</script>
 
-
-				<p id="pytanie"></p>
-				<button>Następne pytanie</button>
-
-
-
-				<script>
-				document.write(questions[0][0]);
-				document.getElementById("pytanie").innerHTML = "test";
-				</script>
-
-
-
-
+				<br>
+				<button onclick="Nastepne_pytanie()">Następne pytanie</button>
+				<p id="punkty"></p>
 
 				<script> 
-				let message = 'Liczba punktów: ' + score; message += ' z ' + questions.length; message += '.'; 
-				document.write('<p>' + message + '</p>'); 
+				let message = 'Liczba punktów: ' + score; message += ' z ' + 9; message += '.'; 
+				document.getElementById("punkty").innerHTML = message;
+				function licz_punkty() {
+				let message = 'Liczba punktów: ' + score; message += ' z ' + 9; message += '.'; 
+				document.getElementById("punkty").innerHTML = message;
+				}
 				</script>
 
 
